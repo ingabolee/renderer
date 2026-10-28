@@ -1,0 +1,64 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default (Release, Ninja)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_STANDARD": "23",
+        "INCREMENTAL_BUILD_TESTS": "ON",
+        "INCREMENTAL_BUILD_BENCHMARKS": "ON",
+        "INCREMENTAL_BUILD_EXAMPLES": "ON"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug (Ninja)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_STANDARD": "23",
+        "INCREMENTAL_BUILD_TESTS": "ON",
+        "INCREMENTAL_BUILD_BENCHMARKS": "OFF",
+        "INCREMENTAL_BUILD_EXAMPLES": "ON"
+      }
+    },
+    {
+      "name": "sanitize",
+      "displayName": "Debug + Sanitizers",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build-san",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_STANDARD": "23",
+        "INCREMENTAL_BUILD_TESTS": "ON",
+        "INCREMENTAL_BUILD_BENCHMARKS": "OFF",
+        "INCREMENTAL_BUILD_EXAMPLES": "OFF",
+        "INCREMENTAL_ENABLE_SANITIZERS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default",
+      "configurePreset": "default"
+    },
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "default",
+      "configurePreset": "default",
+      "output": {
+        "verbosity": "verbose"
+      }
+    }
+  ]
+}

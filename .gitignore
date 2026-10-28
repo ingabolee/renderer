@@ -1,0 +1,23 @@
+# .gitignore
+build/
+build-debug/
+build-san/
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.a
+*.o
+*.d
+.cache/
+compile_commands.json
+.vs/
+.vscode/
+*.user
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+_deps/
